@@ -8,11 +8,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.widget.TextView;
 
-
-public class MainActivity extends AppCompatActivity {
+public class StrategyActivity extends AppCompatActivity {
 
     private TextView mTextMessage;
-
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -20,26 +18,28 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
+
+
                 case R.id.navigation_home:
                     mTextMessage.setText(R.string.title_home);
+
+                    Intent mainIntent = new Intent(StrategyActivity.this,MainActivity.class);
+                    getIntent();
+
                     return true;
+
                 case R.id.navigation_dashboard:
                     mTextMessage.setText(R.string.title_dashboard);
-
-
-
-                    Intent graphicIntent = new Intent(MainActivity.this,GraphicActivity.class);
-                    startActivity(graphicIntent);
-
+                    Intent graphicIntent = new Intent(StrategyActivity.this,GraphicActivity.class);
+                    getIntent();
 
                     return true;
+
                 case R.id.navigation_notifications:
                     mTextMessage.setText(R.string.title_notifications);
-
-                    Intent strategyIntent = new Intent(MainActivity.this,StrategyActivity.class);
-                    startActivity(strategyIntent);
-
                     return true;
+
+
             }
             return false;
         }
@@ -48,22 +48,15 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_strategy);
 
         mTextMessage = (TextView) findViewById(R.id.message);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
-       // if (mTextMessage.getText().equals(R.string.title_dashboard)){
-
-
-
-
-
-       // }
-
 
 
     }
+
 
 }

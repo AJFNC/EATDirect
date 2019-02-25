@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">EATDirect</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_home">Status</string>
+    <string name="title_dashboard">Gráfico</string>
+    <string name="title_notifications">Estratégia</string>
+    <string name="title_exit">Sair</string>
+    <string name="title_activity_graphic">GraphicActivity</string>
+    <string name="title_activity_strategy">StrategyActivity</string>
 </resources>
