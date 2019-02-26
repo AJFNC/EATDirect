@@ -24,14 +24,16 @@ public class StrategyActivity extends AppCompatActivity {
                     mTextMessage.setText(R.string.title_home);
 
                     Intent mainIntent = new Intent(StrategyActivity.this,MainActivity.class);
-                    getIntent();
+                    startActivity(mainIntent);
+                    //getIntent();
 
                     return true;
 
                 case R.id.navigation_dashboard:
                     mTextMessage.setText(R.string.title_dashboard);
                     Intent graphicIntent = new Intent(StrategyActivity.this,GraphicActivity.class);
-                    getIntent();
+                    startActivity(graphicIntent);
+                    //getIntent();
 
                     return true;
 
@@ -54,7 +56,7 @@ public class StrategyActivity extends AppCompatActivity {
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
-
+        System.out.println("[SA] Estratégia apresentada!");
 
     }
 

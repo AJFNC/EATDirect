@@ -31,7 +31,8 @@ public class GraphicActivity extends AppCompatActivity {
                     mTextMessage.setText(R.string.title_home);
 
                     Intent mainIntent = new Intent(GraphicActivity.this,MainActivity.class);
-                    getIntent();
+                    startActivity(mainIntent);
+                    //getIntent();
                     return true;
 
 
@@ -67,7 +68,7 @@ public class GraphicActivity extends AppCompatActivity {
         });
         graph.addSeries(series);
 
-
+        System.out.println("[GA] Gráfico plotado!");
 
     }
 
