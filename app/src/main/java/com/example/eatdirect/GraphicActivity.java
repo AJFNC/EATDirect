@@ -16,6 +16,8 @@ public class GraphicActivity extends AppCompatActivity {
 
     private TextView mTextMessage;
 
+    public TDDBOperacao tdCEF;
+
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
@@ -47,6 +49,7 @@ public class GraphicActivity extends AppCompatActivity {
             return false;
         }
     };
+    private String selecSTR;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +59,12 @@ public class GraphicActivity extends AppCompatActivity {
         mTextMessage = (TextView) findViewById(R.id.message);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+
+        tdCEF = new TDDBOperacao(this);
+
+        selecSTR = tdCEF.selectFromDB();
+
+        System.out.println(this.selecSTR);
 
 
         GraphView graph = (GraphView) findViewById(R.id.graph);
@@ -71,5 +80,6 @@ public class GraphicActivity extends AppCompatActivity {
         System.out.println("[GA] Gráfico plotado!");
 
     }
+
 
 }

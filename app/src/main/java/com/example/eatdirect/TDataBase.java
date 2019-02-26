@@ -7,14 +7,14 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class TDataBase extends SQLiteOpenHelper {
 
-    private static final int DATABASE_VERSION = 2;
+    private static final int DATABASE_VERSION = 3;
     private static final String DATABASE_NAME = "td_database";
-    private Context context;
+    //private Context context;
 
 
     public TDataBase (Context context){
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
-        this.context = context;
+        //this.context = context;
 
     }
 
@@ -25,7 +25,8 @@ public class TDataBase extends SQLiteOpenHelper {
 
         try {
 
-            db.execSQL("CREATE TABLE TAXAS (ID_TAXA NUMBER, MES TEXT, SELIC NUMBER, IPCA NUMBER)");
+            db.execSQL("CREATE TABLE TAXAS (_id INTEGER PRIMARY KEY AUTOINCREMENT, MES VARCHAR(3), SELIC REAL, IPCA REAL)");
+            System.out.println("[TDB] Banco de dados criado!");
         }
         catch(Exception e){
             System.out.println(e);
