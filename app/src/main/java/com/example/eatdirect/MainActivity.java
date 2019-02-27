@@ -23,10 +23,10 @@ public class MainActivity extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.navigation_home:
-                    mTextMessage.setText(R.string.title_home);
+                    //mTextMessage.setText(R.string.title_home);
                     return true;
                 case R.id.navigation_dashboard:
-                    mTextMessage.setText(R.string.title_dashboard);
+                   // mTextMessage.setText(R.string.title_dashboard);
 
 
 
@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
 
                     return true;
                 case R.id.navigation_notifications:
-                    mTextMessage.setText(R.string.title_notifications);
+                    //mTextMessage.setText(R.string.title_notifications);
 
                     Intent strategyIntent = new Intent(MainActivity.this,StrategyActivity.class);
                     startActivity(strategyIntent);
@@ -61,12 +61,12 @@ public class MainActivity extends AppCompatActivity {
 
 
         tdCEF = new TDDBOperacao(this);
-        tdCEF.insertIntoDB(1, "AGO", 6.50f, 4.30f);
-        tdCEF.insertIntoDB(1, "SET", 6.50f, 4.28f);
-        tdCEF.insertIntoDB(1, "OUT", 6.50f, 4.53f);
-        tdCEF.insertIntoDB(1, "NOV", 6.50f, 4.39f);
-        tdCEF.insertIntoDB(1, "DEZ", 6.50f, 3.86f);
-        tdCEF.insertIntoDB(1, "JAN", 6.50f, 3.77f);
+        tdCEF.insertIntoDB("AGO", 6.50f, 4.30f);
+        tdCEF.insertIntoDB("SET", 6.50f, 4.28f);
+        tdCEF.insertIntoDB("OUT", 6.50f, 4.53f);
+        tdCEF.insertIntoDB("NOV", 6.50f, 4.39f);
+        tdCEF.insertIntoDB("DEZ", 6.50f, 3.86f);
+        tdCEF.insertIntoDB("JAN", 6.50f, 3.77f);
 
 
         System.out.println("[MA] DB fechado!");

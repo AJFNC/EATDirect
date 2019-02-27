@@ -18,11 +18,11 @@ public class TDDBOperacao {
 
     // Método para inserir dados no BD
 
-    public long insertIntoDB(int id, String mes, float taxa, float inflacao){
+    public long insertIntoDB(String mes, float taxa, float inflacao){
 
         SQLiteDatabase bd = myDB.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put("_id", id);
+        //values.put("_id", id);
         values.put("MES", mes);
         values.put("SELIC", taxa);
         values.put("IPCA", inflacao);
@@ -42,7 +42,12 @@ public class TDDBOperacao {
         String[] colunas = {"_id", "MES", "SELIC", "IPCA"};
         Cursor cursor = bd.query("TAXAS", colunas, null, null, null, null, null);
         StringBuffer buffer = new StringBuffer();
-        while(cursor.moveToNext()){
+
+
+        int i;
+       for (i = 0; i < 5; i++){
+        //while(cursor.moveToNext()){
+            cursor.moveToNext();
             int id = cursor.getInt(cursor.getColumnIndex("_id"));
             String mes = cursor.getString(cursor.getColumnIndex("MES"));
             float selic = cursor.getFloat(cursor.getColumnIndex("SELIC"));

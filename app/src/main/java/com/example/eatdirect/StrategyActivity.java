@@ -21,7 +21,7 @@ public class StrategyActivity extends AppCompatActivity {
 
 
                 case R.id.navigation_home:
-                    mTextMessage.setText(R.string.title_home);
+                    //mTextMessage.setText(R.string.title_home);
 
                     Intent mainIntent = new Intent(StrategyActivity.this,MainActivity.class);
                     startActivity(mainIntent);
@@ -30,7 +30,7 @@ public class StrategyActivity extends AppCompatActivity {
                     return true;
 
                 case R.id.navigation_dashboard:
-                    mTextMessage.setText(R.string.title_dashboard);
+                   // mTextMessage.setText(R.string.title_dashboard);
                     Intent graphicIntent = new Intent(StrategyActivity.this,GraphicActivity.class);
                     startActivity(graphicIntent);
                     //getIntent();
@@ -38,7 +38,7 @@ public class StrategyActivity extends AppCompatActivity {
                     return true;
 
                 case R.id.navigation_notifications:
-                    mTextMessage.setText(R.string.title_notifications);
+                   // mTextMessage.setText(R.string.title_notifications);
                     return true;
 
 

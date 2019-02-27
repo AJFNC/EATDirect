@@ -34,16 +34,41 @@
     <EditText
         android:id="@+id/editText"
         android:layout_width="335dp"
-        android:layout_height="275dp"
+        android:layout_height="55dp"
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="56dp"
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
+        android:editable="false"
         android:ems="10"
+        android:gravity="center"
         android:inputType="textPersonName"
+        android:text="Estratégia a ser adotada"
+        android:textColor="@android:color/white"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/message" />
+        app:layout_constraintTop_toBottomOf="@+id/message"
+        tools:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/editText2"
+        android:layout_width="334dp"
+        android:layout_height="175dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="39dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:inputType="textMultiLine"
+        android:text=" Comprar Tesouro Selic e Vender Tesouro Pré-fixado"
+        android:textColor="@android:color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText"
+        tools:textSize="18sp" />
 
 </android.support.constraint.ConstraintLayout>
