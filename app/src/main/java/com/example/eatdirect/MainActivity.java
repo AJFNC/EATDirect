@@ -26,22 +26,30 @@ public class MainActivity extends AppCompatActivity {
                     //mTextMessage.setText(R.string.title_home);
                     return true;
                 case R.id.navigation_dashboard:
-                   // mTextMessage.setText(R.string.title_dashboard);
+                    // mTextMessage.setText(R.string.title_dashboard);
 
 
-
-                    Intent graphicIntent = new Intent(MainActivity.this,GraphicActivity.class);
+                    Intent graphicIntent = new Intent(MainActivity.this, GraphicActivity.class);
                     startActivity(graphicIntent);
 
 
                     return true;
+
+
+                    /**
+
                 case R.id.navigation_notifications:
                     //mTextMessage.setText(R.string.title_notifications);
 
                     Intent strategyIntent = new Intent(MainActivity.this,StrategyActivity.class);
+
                     startActivity(strategyIntent);
 
+
+
                     return true;
+
+                    */
             }
             return false;
         }

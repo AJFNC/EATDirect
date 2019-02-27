@@ -7,6 +7,7 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.jjoe64.graphview.GraphView;
@@ -19,7 +20,16 @@ public class GraphicActivity extends AppCompatActivity {
 
     private TextView mTextMessage;
 
+    private EditText editText6;
+    private EditText editText7;
+
+
     public TDDBOperacao tdCEF;
+
+    public double MyAxeD = 0;
+    public  double MyAxeID = 0;
+    public double lyAxeD;
+    public double lyAxeID;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -45,6 +55,14 @@ public class GraphicActivity extends AppCompatActivity {
                    // mTextMessage.setText(R.string.title_notifications);
 
                     Intent strategyIntent = new Intent(GraphicActivity.this,StrategyActivity.class);
+
+                    Bundle bundle = new Bundle();
+                    bundle.putDouble("mSELIC", MyAxeD);
+                    bundle.putDouble("mIPCA", MyAxeID);
+                    bundle.putDouble("lSELIC", lyAxeD);
+                    bundle.putDouble("lIPCA", lyAxeID);
+                    strategyIntent.putExtras(bundle);
+
                     startActivity(strategyIntent);
 
                     return true;
@@ -64,6 +82,9 @@ public class GraphicActivity extends AppCompatActivity {
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
+        editText6 = findViewById(R.id.editText6);
+        editText7 = findViewById(R.id.editText7);
+
         tdCEF = new TDDBOperacao(this);
 
         selectSTR = tdCEF.selectFromDB();
@@ -75,6 +96,7 @@ public class GraphicActivity extends AppCompatActivity {
         int i=0;
         double xAxeD[] = new double[12];
         double yAxeD[] = new double[12];
+        double yAxeIPCAD[] = new double[12];
 
 
 
@@ -92,17 +114,41 @@ public class GraphicActivity extends AppCompatActivity {
 
 
             String xAxe = line.substring(2, 5);
-
             System.out.println(xAxe);
+
             String yAxe = line.substring(6, 9);
             System.out.println(yAxe);
 
+            String yAxeI = line.substring(10, 13);
+            System.out.println(yAxeI);
+
             xAxeD[i] = this.converteStringToDouble(xAxe);
             yAxeD[i] = Double.parseDouble(yAxe);
+            yAxeIPCAD[i] = Double.parseDouble(yAxeI);
 
-            //i++;
+            MyAxeD += yAxeD[i];
+
+            MyAxeID += yAxeIPCAD[i];
+
+
+            lyAxeD = yAxeD[i];
+            lyAxeID = yAxeIPCAD[i];
+
+
         }
 
+        MyAxeD = MyAxeD / 5;
+        MyAxeID = MyAxeID / 5;
+
+
+
+
+        System.out.println("[GA] " + MyAxeD);
+        System.out.println("[GA] " + MyAxeID);
+
+
+        editText6.setText(String.valueOf(MyAxeD));
+        editText7.setText(String.valueOf(MyAxeID));
 
         GraphView graph = (GraphView) findViewById(R.id.graph);
         LineGraphSeries<DataPoint> serieSelic = new LineGraphSeries<>(new DataPoint[] {

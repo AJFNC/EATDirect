@@ -63,7 +63,6 @@
         android:autofillHints=""
         android:ems="10"
         android:inputType="textMultiLine"
-        android:text=" Comprar Tesouro Selic e Vender Tesouro Pré-fixado"
         android:textColor="@android:color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
