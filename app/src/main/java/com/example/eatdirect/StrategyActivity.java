@@ -21,6 +21,8 @@ public class StrategyActivity extends AppCompatActivity {
     double mIpcaEst;
     double lIpca;
 
+    public String estrategia;
+
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
@@ -90,44 +92,48 @@ public class StrategyActivity extends AppCompatActivity {
         // Estratégia a ser adotada em função da média dos 5 meses das taxas
 
         if ((mSelicEst < 20.00) & (mSelicEst >= 15.00) & (mIpcaEst < 9.00) & (mIpcaEst >= 6.00)) {
+            //estrategia =  "Comprar  Tesour Pré-Fixado/ Vender Tesouro SELIC";
             editText2.setText("Comprar  Tesour Pré-Fixado/ Vender Tesouro SELIC");
         }
         if ((mSelicEst < 20.00) & (mSelicEst >= 15.00) & (mIpcaEst < 6.00) & (mIpcaEst >= 2.00)) {
+            //estrategia = "Comprar  Tesour Pré-Fixado/ Manter Tesouro SELIC ";
             editText2.setText("Comprar  Tesour Pré-Fixado/ Manter Tesouro SELIC ");
         }
 
         if ((mSelicEst < 15.00) & (mSelicEst >= 10.00) & (mIpcaEst < 9.00) & (mIpcaEst >= 6.00)) {
+            //estrategia = "Comprar  Tesour Pré-Fixado/ Vender Tesouro SELIC";
             editText2.setText("Comprar  Tesour Pré-Fixado/ Vender Tesouro SELIC");
         }
         if ((mSelicEst < 15.00) & (mSelicEst >= 10.00) & (mIpcaEst < 6.00) & (mIpcaEst >= 2.00)) {
+            //estrategia = "Comprar  Tesour Pré-Fixado/ Manter Tesouro SELIC ";
             editText2.setText("Comprar  Tesour Pré-Fixado/ Manter Tesouro SELIC ");
         }
 
         if ((mSelicEst < 10.00) & (mSelicEst >= 6.00) & (mIpcaEst < 9.00) & (mIpcaEst >= 6.00)) {
+            //estrategia = "Comprar Tesouro SELIC / Manter Tesouro Pré-Fixado";
             editText2.setText("Comprar Tesouro SELIC / Manter Tesouro Pré-Fixado");
         }
         if ((mSelicEst < 10.00) & (mSelicEst >= 6.00) & (mIpcaEst < 6.00) & (mIpcaEst >= 2.00)) {
+           // editText2.setText("Comprar Tesouro SELIC / Vender Tesouro Pré-Fixado");
             editText2.setText("Comprar Tesouro SELIC / Vender Tesouro Pré-Fixado");
         }
 
         if ((mSelicEst < 6.00) & (mSelicEst >= 2.00) & (mIpcaEst < 9.00) & (mIpcaEst >= 6.00)) {
+            //editText2.setText("Comprar Tesouro SELIC / Manter Tesouro Pré-Fixado");
             editText2.setText("Comprar Tesouro SELIC / Manter Tesouro Pré-Fixado");
         }
         if ((mSelicEst < 6.00) & (mSelicEst >= 2.00) & (mIpcaEst < 6.00) & (mIpcaEst >= 2.00)) {
-            editText2.setText("Comprar Tesouro SELIC / Vender Tesouro Pré-Fixado");
+           // editText2.setText("Comprar Tesouro SELIC / Vender Tesouroajfnc2017 Pré-Fixado");
+            editText2.setText("Comprar Tesouro SELIC / Vender Tesouroajfnc2017 Pré-Fixado");
         }
 
         if ((mSelicEst < 2.00) & (mIpcaEst < 2.00)) {
+            //estrategia = "Investir em um negócio";
             editText2.setText("Investir em um negócio");
         }
 
 
-    /**
-        if ((mIpcaEst < lIpca) & (mIpcaEst < lIpca)){
-             editText2.setText("Comprar  / Vender ");
-        }
 
-      */
 
 
         System.out.println("[SA] Estratégia apresentada!");
